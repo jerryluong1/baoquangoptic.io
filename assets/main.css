@@ -1,0 +1,76 @@
+/* ========== Global enhancements (scoped to existing structure) ========== */
+
+/* Smooth scrolling across the site */
+html { scroll-behavior: smooth; }
+
+/* Navigation hover — subtle, non-destructive */
+[data-framer-name="navigation"] a,
+[data-framer-name="navigation"] [role="link"]{
+  transition: color .25s ease, transform .2s ease, text-underline-offset .2s ease;
+  text-underline-offset: 4px;
+}
+[data-framer-name="navigation"] a:hover,
+[data-framer-name="navigation"] [role="link"]:hover{
+  color: #D6A873;
+  transform: translateY(-1px);
+  text-decoration: underline;
+}
+
+/* ===== Hero homepage auto-slide (transform only; layout untouched) ===== */
+.ez-hero-slides{
+  transition: transform 700ms cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+
+/* ===== Producing section slider & countdown (scoped) ===== */
+[data-framer-name="Sản phẩm đang sản xuất"] { position: relative; }
+
+/* Track animation */
+[data-framer-name="Sản phẩm đang sản xuất"] .ez-slides{
+  transition: transform .6s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+
+/* Buttons */
+[data-framer-name="Sản phẩm đang sản xuất"] .ez-slider-btn{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:999px; border:0;
+  display:grid; place-items:center; cursor:pointer;
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 2px 12px rgba(0,0,0,.10);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  z-index: 3; opacity:.98;
+}
+[data-framer-name="Sản phẩm đang sản xuất"] .ez-slider-btn:hover{
+  transform:translateY(-50%) scale(1.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,.14);
+}
+[data-framer-name="Sản phẩm đang sản xuất"] .ez-prev{ left:-6px; }
+[data-framer-name="Sản phẩm đang sản xuất"] .ez-next{ right:-6px; }
+[data-framer-name="Sản phẩm đang sản xuất"] .ez-slider-btn svg{ width:18px; height:18px; display:block; }
+
+/* Light image hover on product cards */
+[data-framer-name="Sản phẩm đang sản xuất"] li [data-framer-name^="Product_"] img{
+  transition: transform .35s ease, filter .35s ease;
+}
+[data-framer-name="Sản phẩm đang sản xuất"] li:hover [data-framer-name^="Product_"] img{
+  transform: scale(1.03);
+  filter: saturate(1.03);
+}
+
+/* Countdown (no labels) */
+[data-framer-name="Sản phẩm đang sản xuất"] .ez-countdown{
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #141414;
+  text-align: center;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  pointer-events: none;
+  width: 100%;
+  margin-top: 8px;
+}
+[data-framer-name="Sản phẩm đang sản xuất"] .ezcd-wrap{ display:inline-flex; gap:.25em; }
+[data-framer-name="Sản phẩm đang sản xuất"] .ezcd-part{ min-width:28px; text-align:center; }
